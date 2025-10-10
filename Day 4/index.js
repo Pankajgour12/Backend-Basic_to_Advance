@@ -3,7 +3,28 @@ const http = require('http');
 
 const fs = require('fs');
 
+const {Transform, pipeline} =require('stream')
+
+
+
+
+
+
+
+
+
+
+
 const server = http.createServer((req , res)=>{
+
+
+
+
+
+
+
+
+
 
 //? --------1----------
 //! downloading file bad way ❌
@@ -32,22 +53,59 @@ res.end() */
 //* Copy file in a Good way 
 
 
-const readStream = fs.createReadStream('file.txt');
+/* const readStream = fs.createReadStream('file.txt');
 const writeStream = fs.createWriteStream('output.txt');
 
 
 readStream.on('data',(chunk)=>{
 writeStream.write(chunk)
 
+}) */
+
+
+
+
+//? ---- 3----- String Processing 
+
+
+// uppercase
+// insum ---->  Pankaj
+
+
+
+const readStream = fs.createReadStream('file.txt');
+const writeStream = fs.createWriteStream('output.txt');
+const transformStream  = new Transform({
+
+transform(chunk , encoding ,callback){
+    const modifiedWord = chunk.toString().toUpperCase().replaceAll('IPSUM' ,"Pankaj")
+    callback(null , modifiedWord)
+
+
+}
+
+
+
 })
 
+pipeline(readStream , transformStream,pipeline,(err)=>{
+    console.log(err)
+})
+
+//! Bad Apprach
+/* readStream.on('data',(chunk)=>{
+    const modifiedWord = chunk.toString().toUpperCase().replaceAll('IPSUM' ,"Pankaj Gour")
+    writeStream.write(modifiedWord)
+})
+ */
+
+// readStream.pipe(transformStream).pipe(writeStream);
 
 
 
 
 
-
-
+res.end()
 
 
 
