@@ -77,6 +77,64 @@ data: newUser
 // *3. PUT Request ( it is for updating All FIELDS)
 
 
+app.put('/api/v1/users/:id', (req, res) => {
+  const {
+    body,
+    params: { id }
+  } = req;
+
+  const parseId = Number(id); // ✅ safer conversion
+  console.log("Incoming ID:", parseId);
+
+  const userIndex = userData.findIndex((user) => user.id === parseId);
+  console.log("Found index:", userIndex);
+
+  if (userIndex === -1) {
+    return res.status(404).send("User not found");
+  }
+
+  userData[userIndex] = {
+    ...userData[userIndex],
+    ...body
+  };
+
+  res.status(201).send({
+    message: 'User Updated successfully ',
+    data: userData[userIndex]
+  });
+});
+
+
+
+//*4. PATCH Request (it is for updating specific fields in an )
+
+app.patch('/api/v1/users/:id', (req, res) => {
+  const {
+    body,
+    params: { id }
+  } = req;
+
+  const parseId = Number(id); // ✅ safer conversion
+  console.log("Incoming ID:", parseId);
+
+  const userIndex = userData.findIndex((user) => user.id === parseId);
+  console.log("Found index:", userIndex);
+
+  if (userIndex === -1) {
+    return res.status(404).send("User not found");
+  }
+
+  userData[userIndex] = {
+    ...userData[userIndex],
+    ...body
+  };
+
+  res.status(201).send({
+    message: 'User Updated successfully ',
+    data: userData[userIndex]
+  });
+});
+
 
 
 
