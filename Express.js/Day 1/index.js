@@ -7,6 +7,7 @@ const PORT = 3000
 
 
 
+app.use(express.json());
 
 // * GET Request ( it is for fetching data from server)
 
@@ -39,10 +40,42 @@ app.get('/api/v1/users/:id',(req, res)=>{
 
 
 
-//! POST Request ( it is for sending data to server)
+//* POST Request ( it is for sending data to server)
+
+
 app.post('/api/v1/users/',(req, res)=>{
-    res.status(200).send("User created")
+    const { name , displayname} =(req.body);
+
+
+
+
+    const newUser = {
+        id: userData.length + 1,
+        name,
+        displayname
+    }
+    userData.push(newUser)
+
+    res.status(201).send(
+{
+message:"User created",
+data: newUser
+
+}
+      
+    )
+
+    console.log(newUser);
 })
+
+
+
+
+
+
+
+// *3. PUT Request ( it is for updating All FIELDS)
+
 
 
 

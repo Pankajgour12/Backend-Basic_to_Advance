@@ -45,8 +45,11 @@ app.get('/users/:id', (req, res) => {
   if (!user) return res.status(404).send('User not found');
   res.json(user);
 });
-🧠 Interview Questions
-Q: What is a GET request used for?
+
+```
+## 🧠 Interview Questions
+Q: What is a **GET** request used for?
+
 A: To fetch data from the server.
 
 Q: Difference between req.params and req.query?
@@ -89,8 +92,8 @@ A: 201 Created.
 📘 Purpose
 Used to replace an existing resource completely.
 
-js
-Copy code
+```js
+
 app.put('/users/:id', (req, res) => {
   const id = parseInt(req.params.id);
   const { name, email } = req.body;
@@ -101,6 +104,7 @@ app.put('/users/:id', (req, res) => {
   users[index] = { id, name, email }; // Replace full object
   res.json(users[index]);
 });
+```
 🧠 Interview Questions
 Q: What’s the main difference between PUT and PATCH?
 A:
