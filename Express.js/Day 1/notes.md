@@ -68,12 +68,13 @@ Used to send data to the server (Create operation).
 
 js
 Copy code
-app.post('/users', (req, res) => {
+```app.post('/users', (req, res) => {
   const { name, email } = req.body;
   const newUser = { id: users.length + 1, name, email };
   users.push(newUser);
   res.status(201).json(newUser);
 });
+```
 🧠 Interview Questions
 Q: What’s the difference between GET and POST?
 A:
@@ -105,7 +106,7 @@ app.put('/users/:id', (req, res) => {
   res.json(users[index]);
 });
 ```
-🧠 Interview Questions
+## Interview Questions
 Q: What’s the main difference between PUT and PATCH?
 A:
 
