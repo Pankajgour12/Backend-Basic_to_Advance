@@ -8,5 +8,3 @@ drop database college;
 drop database if exists college;
 
 #Show database
-
-show databases
