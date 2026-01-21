@@ -45,7 +45,7 @@ app.get('/users/:id', (req, res) => {
   if (!user) return res.status(404).send('User not found');
   res.json(user);
 });
-
+  
 ```
 ## 🧠 Interview Questions
 Q: What is a **GET** request used for?
