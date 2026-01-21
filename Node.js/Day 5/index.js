@@ -23,6 +23,7 @@ if(hashvalue === matchValue){
 }
 else{
     console.log("Something Went Wrong")
+    console.log(error);
 }
 
 // THEY WANT TO SAY 
