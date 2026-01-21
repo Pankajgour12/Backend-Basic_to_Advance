@@ -1,7 +1,7 @@
 const http = require('http');
 const fs = require('fs');
 
-const Port = 3000;
+const PORT = 3000;
 
 
 
@@ -19,5 +19,6 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(Port, () => {
-    console.log(`Server running at http://localhost:${Port}/`);
+    console.log(`server is running or `);
+    console.log(`Server running at http://localhost:${PORT}/`);
 });
