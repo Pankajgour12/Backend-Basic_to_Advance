@@ -15,7 +15,7 @@ const os = require("os");
 
 
 ```js
-os.arch(); // e.g., 'x64'
+os.arch(); // e.g., 'x64'  ..
 ```
 
 
