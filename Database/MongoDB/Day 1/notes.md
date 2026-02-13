@@ -65,6 +65,9 @@ MongoDB stores data in a binary format called **BSON** (Binary JSON). When a doc
   
 - **BSON (Binary JSON)** is a binary-encoded format for JSON-like data. It extends JSON to support additional data types, like `ObjectId`, and allows for faster encoding and decoding.
 
+- **Best Interview Answer (Short)
+- JSON is a text-based, human-readable data format mainly used for data exchange, while BSON is a binary-encoded format used internally by MongoDB. BSON is faster to parse, more efficient for storage, and supports additional data types like Date and ObjectId compared to JSON.
+
 **Example of BSON Data**:
 ```json
 {
