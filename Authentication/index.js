@@ -2,6 +2,9 @@ import express from "express";
 import connectDB from "./src/config/db.js";
 import dotenv from "dotenv";
 import session from "express-session";
+import userRouter from "./src/routes/user.route.js";
+
+
 
 dotenv.config();
 
@@ -32,6 +35,11 @@ app.use(
 app.get('/',(req,res)=>{
     res.send("This is the Authenication Session")
 })
+
+//*Routes
+app.use('/api/user',userRouter)
+
+
 
 connectDB().then(()=>{
     app.listen(PORT,()=>{
