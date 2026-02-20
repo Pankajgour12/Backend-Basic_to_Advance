@@ -5,6 +5,6 @@ export const validateSession =(req ,res,next )=>{
             message:"Unauthorized"
         })
     }
-
+next()
 }
 
