@@ -2,8 +2,8 @@ import express from "express";
 import connectDB from "./src/config/db.js";
 import dotenv from "dotenv";
 import session from "express-session";
-import userRouter from "./src/routes/user.route.js";
-
+import userRoutes from "./src/routes/user.route.js";
+import taskRoutes from "./src/routes/task.route.js"
 
 
 dotenv.config();
@@ -37,7 +37,8 @@ app.get('/',(req,res)=>{
 })
 
 //*Routes
-app.use('/api/user',userRouter)
+app.use('/api/user',userRoutes)
+app.use('/api/task',taskRoutes)
 
 
 
