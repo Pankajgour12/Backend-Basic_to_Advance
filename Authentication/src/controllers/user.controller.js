@@ -1,4 +1,4 @@
-import { loginUser, registerUser } from "../services/user.service.js";
+import { loginUser, logoutUser, registerUser } from "../services/user.service.js";
 
 
 // signUp 
@@ -57,4 +57,31 @@ export const login  = async(req,res)=>{
 }
 
 
-export const logout = async()=>{}
+
+
+
+// Logout
+
+export const logout = async (req, res) => {
+
+    try {
+
+        await logoutUser(req);
+
+        res.clearCookie("connect.sid"); // session cookie delete
+
+        res.status(200).json({
+            success:true,
+            message:"Logout Successful"
+        });
+
+    } catch (error) {
+
+        res.status(500).json({
+            success:false,
+            message:error.message
+        });
+
+    }
+
+};
